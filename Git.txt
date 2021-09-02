@@ -1,0 +1,67 @@
+1. Tổng quan
+Đn: Công nghệ quản lý source code
++ Giúp cho ghép code trong dự án một cách an toàn
++ Giúp quản lý lịch sử (chuyển đổi các version khác nhau)
+
+2. Luồng hoạt động của git
+a. Working space: phần lưu file trên máy local
+b. Stage area : Do git quản lý
+c. Git local : Do git quản lý
+d. remote: Kho chứa trên mạng (github, gitlab)
+- Các câu lệnh cơ bản
++ git init: Tạo ra hai phần b và c trên máy tính
++ git add .: Chuyển file từ a sang b
++ git config --global user.name "tên": Khai báo tên đăng nhập
++ git config --global user.email "Email": Khai báo email đăng nhập
++ git commit -m 'comment': Chuyển file từ b sang c và tạo ra một version commit mới
++ git checkout tên commit: chuyển đổi các commit
++ git remote add origin địa chỉ: Liên kết với địa chỉ github
++ git config credential.helper store: Lưu tài khoản đăng nhập github vào máy tính
++ git push -u origin master: Đẩy file từ c sang d
++ git clone địa chỉ: Tạo một bản sao từ remote về và kết nối với địa chỉ trên mạng
++ git pull origin master: Đồng bộ file từ remote xuống máy tính (thực hiện khi đã có người push file lên remote trước mình)
++ git fetch: Tất cả các thành phần (nhánh, file...) trên remote sẽ chuyển về máy tính
+- Các điểm chú ý, khi có một commit mới tạo ra trên remote thì cần phải pull code về rồi mới code lên, lúc này sẽ trùng file và phải tiến hành ghép code
+- Khi một lập trình viên mới mà không clone về mà tạo một init mới và commit rồi push lên sẽ xảy ra hiện tượng hỏi bạn muốn push lên nhánh nào(thực hiện theo hướng dẫn) sau đó ta phải pull về sảy ra hiện tượng ta hỏi mình phải pull từ nhánh nào (thực hiện theo hướng dẫn) lúc này cần phải đồng bộ lịch sử với remote
+
+3. Branch
+- Là một nhánh phụ bên cạch nhánh chính master
+- Không code trực tiếp vào master do đã được dùng cho khách hàng, cần phải có nhánh phụ để thêm vào nhánh chính
+- Việc phát triển là song song
+- Các câu lệnh cơ bản
++ git branch tên: Tạo một branch và luồng kiểm soát vẫn trên master
++ git checkout -b tên branch: Tạo một nhánh mới và chuyển luồng kiểm soát về nhánh đó
++ git checkout tên branch: Chuyển luồng kiểm soát về nhánh đó
++ git merce tên branch: ghép dữ liệu từ nhánh cần chọn vào nhánh kiểm soát và tạo ra một commit mới
+- Thực hành về nhánh
++ Tất cả trên local và github đều có các nhánh giống nhau
++ Xét các lập trình viên làm việc trên nhánh 1
+
+Lớp trưởng: 
++ git init, git add ., git commit..., git remote, git push
++ git checkout -b nhom1, git push -u origin nhom1
+
+Thành viên nam
++ git clone, git fetch, git checkout nhom1, git checkout -b nam, git add ., git commit -m '', git checkout nhom1, git merce nam, git push
+
+Thành viên Hiệp
++ git clone, git checkout nhom1, git checkout -b hiep, git add ., git commit -m '', git checkout nhom1, git merce hiep, git pull
++ Khi nam và hiệp có dòng trùng nhau thì thực hiện sửa code (sử dụng visual code)
++ git add ., git commit -m '', git push
+
+Lớp trưởng
+Tạo ra new pull request để merce nhóm 1 vào master (thực hiện trên github)
+
+4. Xử lý các commit
+- Muốn quay lại commit cũ và xóa commit hiện tại
++ git log: Lấy các thông tin id của commit (lịch sử các commit)
++ git log --pretty=oneline: Lấy tóm tắt thông tin lịch sử các commit
++ git reset --hard id commit: Xóa commit hiện tại và trở về commit đang lựa chọn
++ git push -f: Ép lịch sử theo hiện hành lúc này các commit cũ đã bị xóa
+- Muốn quay lại commit cũ nhưng không xóa commit hiện hành
++ git revert id commit: Quay lại commit trước commit đang lựa chọn và tạo một commit mới các commit không hề bị xóa 
+Lúc này bắt mình điện nội dung commit ta chỉ cần ấn :q
+
+ 
+
+
