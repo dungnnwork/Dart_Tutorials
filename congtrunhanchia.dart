@@ -11,11 +11,15 @@ phepNhan(m, n) {
 }
 
 phepChiaLayNguyen(e, f) {
+  if(e != 0){
   return e ~/ f;
+  }
 }
 
 phepChiaLayDu(g, h) {
+  if( g != 0)
   return g % h;
+     }
 }
 
 main() {
