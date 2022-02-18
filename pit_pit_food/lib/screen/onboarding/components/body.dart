@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pit_pit_food/constants.dart';
 import 'package:pit_pit_food/size_config.dart';
 
+import '../../splash/splash_screen.dart';
+
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
 
@@ -15,7 +17,7 @@ class _BodyState extends State<Body> {
     super.initState();
     Future.delayed(
       duration,
-      () => Navigator.pushNamed(context, SplashScreen.routeName),
+      () => Navigator.pushNamed(context, SplashScreen.routename),
     );
   }
 
@@ -31,14 +33,14 @@ class _BodyState extends State<Body> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image.asset(
-              'assets\images\Pitfood.png',
+              'assets/images/Pitfood.png',
               fit: BoxFit.cover,
             ),
             Text(
               'Giao hàng nhanh thần tốc',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: getProportionateScreenHeight(30),
+                fontSize: getProportionateScreenHeight(15),
               ),
             ),
           ],

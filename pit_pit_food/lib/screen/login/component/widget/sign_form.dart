@@ -3,6 +3,8 @@ import 'package:pit_pit_food/components/custom_suffix_icon.dart';
 
 import 'package:pit_pit_food/components/default_button.dart';
 import 'package:pit_pit_food/components/form_error.dart';
+import 'package:pit_pit_food/screen/forgot_password_screen/forgot_password_screen.dart';
+import 'package:pit_pit_food/screen/home/home_screen.dart';
 
 import '../../../../constants.dart';
 import '../../../../size_config.dart';
@@ -92,7 +94,13 @@ class _SignFormState extends State<SignForm> {
                 const Spacer(),
                 GestureDetector(
                   onTap: () {
-                    // Navigator to ??
+                    // Navigator to
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ForgotPasswordScreen(),
+                      ),
+                    );
                   },
                   child: const Text(
                     'Quên mật khẩu?',
@@ -107,14 +115,24 @@ class _SignFormState extends State<SignForm> {
             SizedBox(
               height: getProportionateScreenHeight(30),
             ),
-            DefaultButton(
-              text: 'Tiếp tục',
-              press: () {
-                if (_formKey.currentState!.validate()) {
-                  _formKey.currentState!.save();
-                  print('After save email: $email, password: $password');
-                }
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomeScreen(),
+                  ),
+                );
               },
+              child: DefaultButton(
+                text: 'Đăng nhập',
+                press: () {
+                  if (_formKey.currentState!.validate()) {
+                    _formKey.currentState!.save();
+                    print('After save email: $email, password: $password');
+                  }
+                },
+              ),
             ),
           ],
         ),

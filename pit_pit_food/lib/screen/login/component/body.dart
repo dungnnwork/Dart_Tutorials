@@ -15,7 +15,7 @@ class Body extends StatelessWidget {
         children: <Widget>[
           const HeadingTitle(
             labelText: 'Đăng nhập',
-            titleText: 'Truy cập tài khoản',
+            titleText: 'Chào mừng bạn đến với Pit Pit Food ',
             child: SizedBox(),
           ),
           Column(

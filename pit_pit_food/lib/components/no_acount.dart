@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pit_pit_food/screen/sign%20up/component/sign_up%20screen.dart';
+import 'package:pit_pit_food/screen/sign_up/sign_up_screen.dart';
 
 import '../constants.dart';
 import '../size_config.dart';
@@ -20,7 +20,7 @@ class NoAccount extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, SignupScreen.routeName);
+            Navigator.pushNamed(context, SignUpScreen.routeName);
           },
           child: const Text(
             'Đăng kí',

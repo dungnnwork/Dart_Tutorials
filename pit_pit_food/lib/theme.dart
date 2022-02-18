@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pit_pit_food/constants.dart';
 
 ThemeData theme() {
   return ThemeData(
@@ -28,7 +29,7 @@ AppBarTheme appBarTheme() {
 
 TextTheme textTheme() {
   return const TextTheme(
-    bodyText1: TextStyle(color: Colors.green),
-    bodyText2: TextStyle(color: Colors.green),
+    bodyText1: TextStyle(color: kTitleTextColor),
+    bodyText2: TextStyle(color: kTitleTextColor),
   );
 }

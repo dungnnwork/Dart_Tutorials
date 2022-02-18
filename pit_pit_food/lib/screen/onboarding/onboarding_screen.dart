@@ -8,7 +8,7 @@ class Onboarding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig.init(context);
+    SizeConfig().init(context);
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       body: const Body(),
